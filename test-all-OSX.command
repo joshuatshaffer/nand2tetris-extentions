@@ -7,7 +7,7 @@ cd -- "$(dirname "$0")"
 
 # This must be a path to the HardwareSimulator.sh
 # If you are using a relative path it will be realitive to this script file.
-SIMULATOR='../../../tools/HardwareSimulator.sh'
+SIMULATOR='../../tools/HardwareSimulator.sh'
 
 # Output coloring controll codes
 bold=$(tput bold)
@@ -35,6 +35,8 @@ done
 if [ "$ERR_LIST" ]; then
     echo -en "\n${red}Failed Tests:${normal}\n$ERR_LIST"
     echo "If you are haveing difficulty debuging your hdl use the graphical Hardware Simulator. It will give you more information."
+    exit 1
 else
     echo -e "${green}All tests passed!${normal}"
+    exit 0
 fi

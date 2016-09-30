@@ -28,6 +28,8 @@ done
 if [ "$ERR_LIST" ]; then
     echo -n "\nFailed Tests:\n$ERR_LIST"
     echo "If you are haveing difficulty debuging your hdl use the graphical Hardware Simulator. It will give you more information."
+    exit 1
 else
     echo "All tests passed!"
+    exit 0
 fi

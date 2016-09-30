@@ -33,6 +33,8 @@ done
 if [ "$ERR_LIST" ]; then
     echo -en "\n${red}Failed Tests:${normal}\n$ERR_LIST"
     echo "If you are haveing difficulty debuging your hdl use the graphical Hardware Simulator. It will give you more information."
+    exit 1
 else
     echo -e "${green}All tests passed!${normal}"
+    exit 0
 fi

@@ -3,8 +3,8 @@
 # Run this script to test all of the chips in the current working directory.
 
 # This must be a path to the HardwareSimulator.sh
-# If you are using a relative path it will be realitive 
-# to the project directory and not to this script file.
+# If you are using a relative path it will be realitive to the project
+# directory that you are testing and not to this script file.
 SIMULATOR='../../tools/HardwareSimulator.sh'
 
 # Output coloring controll codes

@@ -1,0 +1,10 @@
+#!/bin/bash
+# by Joshua Shaffer on September 29, 2016
+# Run this script to test all of the chips in the current working directory.
+
+# This must be a path to the HardwareSimulator.sh
+# If you are using a relative path it will be realitive 
+# to the project directory and not to this script file.
+SIMULATOR='../../tools/HardwareSimulator.sh'
+
+for i in *.tst; do echo "Testing $i ..."; $SIMULATOR $i; done

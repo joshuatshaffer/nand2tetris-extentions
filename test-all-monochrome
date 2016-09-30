@@ -1,0 +1,33 @@
+#!/bin/bash
+# by Joshua Shaffer on September 29, 2016
+# Run this script to test all of the chips in the current working directory.
+# Use this version if your terminal does not support ANSI escape codes for coloring.
+
+# This must be a path to the HardwareSimulator.sh
+# If you are using a relative path it will be realitive to the project
+# directory that you are testing and not to this script file.
+SIMULATOR='../../tools/HardwareSimulator.sh'
+
+ERR_LIST=""
+
+for TEST_SCRIPT in *.tst
+do
+    CHIP_NAME=${TEST_SCRIPT%.tst}
+    echo -n "Testing $CHIP_NAME ... "
+    ERR_MESSAGE="$($SIMULATOR $TEST_SCRIPT 2>&1)"
+    
+    if [ $? != 0 ]; then
+        echo "fail"
+        ERR_LIST="$ERR_LIST$CHIP_NAME\n$ERR_MESSAGE\n\n"
+    else
+        echo "pass"
+        rm $CHIP_NAME.out
+    fi
+done
+
+if [ "$ERR_LIST" ]; then
+    echo -n "\nFailed Tests:\n$ERR_LIST"
+    echo "If you are haveing difficulty debuging your hdl use the graphical Hardware Simulator. It will give you more information."
+else
+    echo "All tests passed!"
+fi

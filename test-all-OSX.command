@@ -1,5 +1,6 @@
 #!/bin/bash
 # by Joshua Shaffer on September 29, 2016
+# Thank you Drew Mills for this idea of this version. (^u^)
 # Double click this command to test all of the chips in it's directory.
 
 # Channge working directory to this script's location.
